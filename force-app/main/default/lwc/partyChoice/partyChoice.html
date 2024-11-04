@@ -1,0 +1,44 @@
+<template>
+    <lightning-card title="Select a Party" icon-name="standard:party">
+        <template if:true={parties}>
+            <div class="party-container">
+                <template for:each={parties} for:item="party">
+                    <div 
+                        key={party.Id} 
+                        class={party.cssClass} 
+                        data-id={party.Id} 
+                        onclick={handlePartySelect}
+                    >
+                        <div class="party-code">{party.PartyCode__c}</div>
+                        <div class="party-description">{party.Description__c}</div>
+                        <template if:true={party.isSelected}>
+                            <lightning-icon icon-name="utility:check" alternative-text="Selected" class="selected-icon"></lightning-icon>
+                        </template>
+                    </div>
+                </template>
+                
+                <!-- Blank Vote Card -->
+                <div class={getBlankVoteClass} onclick={handleBlankVoteSelect}>
+                    <div class="party-code"></div>
+                    <template if:true={isBlankVoteSelected}>
+                        <lightning-icon icon-name="utility:check" alternative-text="Selected" class="selected-icon"></lightning-icon>
+                        <lightning-input
+                            class="comment-input"
+                            type="text"
+                            value={comment}
+                            placeholder="Type your comment"
+                            onclick={stopPropagation}
+                            onchange={handleCommentInput}>
+                        </lightning-input>
+                    </template>
+                </div>
+            </div>
+        </template>
+
+        <lightning-button variant="brand" label="Save Choice" onclick={handleSaveChoice} disabled={isSaveDisabled}></lightning-button>
+        
+        <template if:true={successMessage}>
+            <div class="success-message">{successMessage}</div>
+        </template>
+    </lightning-card>
+</template>

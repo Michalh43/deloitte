@@ -1,0 +1,100 @@
+.party-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.party-card {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: box-shadow 0.3s, border-color 0.3s;
+    text-align: center;
+    width: 150px;
+    position: relative;
+    background-color: #f5f5f5;
+}
+
+.party-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.party-card.selected  {
+    border: 2px solid #0070d2; 
+    background-color: #e1f5fe;
+}
+
+.blank-vote.selected {
+    border: 2px solid #0070d2;
+    background-color: #e1f5fe;
+    position: relative;
+    .selected-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #0070d2;
+    }
+}
+
+.selected-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #0070d2;
+}
+
+.party-code {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+.existing-choice-warning {
+    color: #d9534f;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.editable-comment {
+    border: 1px dashed #ccc;
+    padding: 8px;
+    min-height: 2rem;
+    cursor: text;
+    white-space: pre-wrap;
+}
+
+.editable-comment[data-placeholder]:empty:before {
+    content: attr(data-placeholder);
+    color: #888;
+}
+
+.blank-vote {
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.comment-input {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.success-message {
+    color: #4caf50;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 1rem;
+}
